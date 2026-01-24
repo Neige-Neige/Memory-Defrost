@@ -412,11 +412,14 @@ def search_memories(query: str, memories: list[dict], category: str = None) -> l
     """混合搜索 - 语义搜索 + 关键词搜索 + 多语言翻译
 
     支持跨语言搜索：自动翻译查询词，用多语言同时搜索
-    category 参数用于加权（匹配的分类会加分），而不是硬过滤
     """
+    # 按分类筛选
+    if category:
+        memories = [m for m in memories if m.get("category", "general") == category]
+
     # 纯关键词模式
     if SEARCH_MODE == "keyword":
-        return search_memories_keyword(query, memories, MAX_RESULTS, category=category)
+        return search_memories_keyword(query, memories, MAX_RESULTS, category=None)
 
     # 获取翻译（多语言查询）
     all_queries = [query] + translate_query(query)
@@ -458,17 +461,12 @@ def search_memories(query: str, memories: list[dict], category: str = None) -> l
             # 3. 优先级加成
             priority_boost = (6 - m.get("priority", 3)) * 0.05
 
-            # 4. 分类加成（如果指定了 category，匹配的加分）
-            category_boost = 0
-            if category and m.get("category", "general") == category:
-                category_boost = 0.15
-
-            # 5. 综合得分
+            # 4. 综合得分
             base_score = max(semantic_score, keyword_score)
             if semantic_score > 0.3 and keyword_score > 0:
                 base_score += 0.1
 
-            final_score = base_score + priority_boost + category_boost
+            final_score = base_score + priority_boost
 
             # 保留最高分
             if final_score > 0.25:
@@ -483,10 +481,11 @@ def search_memories(query: str, memories: list[dict], category: str = None) -> l
 
 
 def search_memories_keyword(query: str, memories: list[dict], top_k: int = None, category: str = None) -> list[tuple[float, dict]]:
-    """关键词搜索（备用），返回 (分数, 记忆) 列表
+    """关键词搜索（备用），返回 (分数, 记忆) 列表"""
+    # 按分类筛选
+    if category:
+        memories = [m for m in memories if m.get("category", "general") == category]
 
-    category 参数用于加权，而不是硬过滤
-    """
     query_lower = query.lower()
     scored = []
 
@@ -508,10 +507,6 @@ def search_memories_keyword(query: str, memories: list[dict], top_k: int = None,
         # 优先级加成
         priority_boost = (6 - m.get("priority", 3))  # 1-5 对应 5-1
         score += priority_boost
-
-        # 分类加成（如果指定了 category，匹配的加分）
-        if category and m.get("category", "general") == category:
-            score += 3
 
         if score > 0:
             scored.append((score, m))
