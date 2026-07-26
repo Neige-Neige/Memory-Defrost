@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Neige-Neige
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
 # memory_server_http.py
 # 通用 MCP 记忆服务 - 云端版本 (HTTP/SSE 传输)
 # 使用 PostgreSQL + Gemini Embedding 语义搜索

@@ -1,5 +1,14 @@
 # Memory MCP Server
 
+> **License: AGPL-3.0-or-later** · Copyright (c) 2026 Neige-Neige
+> If you distribute this software or offer it as a network service (modified or not),
+> you must make the complete corresponding source available under AGPL-3.0-or-later.
+> For closed-source commercial licensing, please [open an issue](../../issues).
+> 本ソフトウェアを配布する、またはネットワークサービスとして提供する場合（改変の有無を問わず）、
+> 対応するソースコード全体を AGPL-3.0-or-later で公開する必要があります。
+> 分发本软件或将其作为网络服务提供时（无论是否修改），必须以 AGPL-3.0-or-later 公开完整的对应源代码。
+
+
 一个通用的 MCP (Model Context Protocol) 记忆服务，为任何支持 MCP 协议的 AI 客户端提供长期记忆能力。支持语义搜索、记忆分类和优先级管理。
 
 ## 特性
@@ -370,7 +379,63 @@ def get_embedding(text: str) -> list[float] | None:
 
 ## License
 
-MIT
+Copyright (c) 2026 Neige-Neige
+
+This project is licensed under the **GNU Affero General Public License, version 3
+or (at your option) any later version** (`AGPL-3.0-or-later`).
+See [LICENSE](LICENSE) for the full text.
+
+### What triggers the copyleft
+
+AGPL is triggered by **distribution** and by **offering the software as a network
+service** — not by "commercial use" as such. Concretely:
+
+- Running an unmodified or modified copy **privately**, without distributing it and
+  without offering it to others over a network → no obligation, even commercially
+- **Distributing** the software, modified or not → you must provide the complete
+  corresponding source under AGPL-3.0-or-later
+- **Offering it as a network service** (SaaS, hosted MCP endpoint, bot, etc.), modified
+  or not → you must make the complete corresponding source available **to its users**,
+  even though you never hand out a copy of the software itself. This is the clause that
+  distinguishes AGPL from plain GPL.
+- In all of the above you must **retain this copyright notice and license**
+
+### Commercial licensing
+
+If you want to distribute this project, or run it as a service, **without releasing your
+source code**, AGPL-3.0-or-later does not permit that. A separate commercial license is
+available — please [open an issue](../../issues) to discuss.
+
+### 中文
+
+本项目采用 **AGPL-3.0-or-later**（GNU Affero 通用公共许可证第 3 版或任何更新版本）授权。
+
+**触发 copyleft 的是"分发"和"以网络服务提供"，而不是"商业使用"本身：**
+
+- 私下运行（不分发、不对外提供网络服务）→ 无义务，即使是商业环境
+- **分发**本软件（无论是否修改）→ 必须以 AGPL-3.0-or-later 提供完整的对应源代码
+- **作为网络服务提供**（SaaS、托管 MCP 端点、bot 等，无论是否修改）→ 必须向**使用者**公开
+  完整的对应源代码，即使你从未分发过软件本体。这是 AGPL 区别于普通 GPL 的核心条款
+- 以上任何情形都必须**保留原始的版权声明与授权条款**
+
+如需在**不公开源代码**的前提下分发或提供服务，AGPL 不允许，请[开 issue](../../issues)联系作者
+获取单独的商业授权。
+
+### 日本語
+
+本プロジェクトは **AGPL-3.0-or-later** ライセンスで公開されています。
+
+copyleft が発動するのは「**配布**」と「**ネットワークサービスとしての提供**」であり、
+「商用利用」そのものではありません:
+
+- 私的に実行するだけ（配布せず、ネットワーク経由で他者に提供しない）→ 商用でも義務なし
+- **配布**する場合（改変の有無を問わず）→ 対応するソースコード全体を AGPL-3.0-or-later で提供
+- **ネットワークサービスとして提供**する場合（改変の有無を問わず）→ ソフトウェア本体を
+  配布していなくても、**利用者に対して**対応するソースコード全体を開示する義務があります
+- いずれの場合も**著作権表示とライセンスの保持**が必要です
+
+ソースコードを公開せずに配布・サービス提供をご希望の場合は、[issue](../../issues) にて
+商用ライセンスをご相談ください。
 
 ---
 

@@ -1,3 +1,6 @@
+# Copyright (c) 2026 Neige-Neige
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
 # memory_server.py
 # 通用 MCP 记忆服务 - 本地版本 (stdio 传输)
 # 支持按需召回、优先级和分类管理
